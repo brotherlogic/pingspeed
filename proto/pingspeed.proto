@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+package pingspeed;
+
+option go_package = "github.com/brotherlogic/pingspeed/proto";
+
+message PingRequest {
+    int64 sent_time = 1;
+}
+
+message PingResponse {
+    int64 received_time = 1;
+    int64 returned_time = 2;
+}
+
+service PingService {
+    rpc Ping(PingRequest) returns (PingResponse) {};
+}
